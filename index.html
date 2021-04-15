@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilos.css" media="all">
+    <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="jquery-barcode.js"></script>
+    <script type="text/javascript" src="qrcode.js"></script>
+
+    
+    <title>Formato</title>
+</head>
+<body>
+    <header class="header">
+        <div class="borde">
+            <div class="datos">
+                <img  class="logo" src="/Logo_TV_2015.png" alt="">
+                <div class="textoInicial">
+                    <h3>NOMBRE RAZON SOCIAL</h3>
+                    <h5> NIT: 9999999-9</h5>
+                    <h5>CALLE 10 No 5 PISO 50 TEL 8800000 Ext.122</h5>
+                </div>
+            </div>
+            
+        </div>
+    </header>
+
+    <hr>
+
+    <main class=" main">
+
+       <section class="encabezado">
+            <div class="documento">
+                    
+                <table>
+                    <tr>               
+                        <th>DOCUMENTO EQUIVALENTE No.:</th>
+                        <td>FCLT-num . </td>
+                    </tr>
+                    <tr>               
+                        <th>NIT:</th>
+                        <td>idCli </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="datosCliente">
+                <table class="tablaCliente">
+                    <caption>CLIENTE</caption>             
+                
+                    <tbody>
+                        <tr>               
+                            <th>NOMBRE</th>
+                            <td>nomCl</td>
+                        </tr>
+                        <tr>               
+                            <th>NIT</th>
+                            <td>idCli</td>
+                        </tr>
+                        <tr>               
+                            <th>DIRECCION</th>
+                            <td>dirClis</td>
+                        </tr>
+                        <tr>               
+                            <th>TELEFONO</th>
+                            <td>telCli</td>
+                        </tr>
+                        <tr>               
+                            <th>CIUDAD</th>
+                            <td>ciuCli</td>
+                        </tr>
+                        <tr>               
+                            <th>EMAIL</th>
+                            <td>email</td>
+                        </tr>
+                        <tr>               
+                            <th>CODIGO</td>
+                            <td>codigoCli</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+      </section>
+        <section class="detalle">
+            <div>
+                <table class="tablaDetalle">
+                    <tr>
+                        <th>FRACCION VEND</th>
+                        <th>DETALLE</th>
+                        <th>VALOR UNIDAD</th>
+                        <th>VALOR TOTAL</th>
+                    </tr>
+                    <tr>
+                        <td>k</td>
+                        <td>concepto - detalle</td>
+                        <td>vlrUni</td>
+                        <td>vlrCan</td>
+
+                    </tr>
+                    <tr>
+                        <td>k</td>
+                        <td>concepto - detalle</td>
+                        <td>vlrUni</td>
+                        <td>vlrCan</td>
+
+                    </tr>
+                    <tr>
+                        <td>k</td>
+                        <td>concepto - detalle</td>
+                        <td>vlrUni</td>
+                        <td>vlrCan</td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2" rowspan="3">PLAZO MAXIMO DE PAGO: 15 DIAS. 
+                            <br>ABSTENERSE DE  EFECTUAR RETENCION EN FUENTE. 
+                            <br> ESTABLECIMIENTO PUBLICO.</td>
+                        <td >SUBTOTAL $vlrSub</td>
+                        <td >$vlrSub</td>
+                    </tr>
+                    <tr>
+                        <td>IVA $vlrIva</td>
+                        <td>$vlrIva</td>
+                    </tr>
+                    <tr>
+                        <td >TOTAL vlrTot</td>
+                        <td >vlrTot</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Son : vlrLet1 <br> vlrLet2 <br> EXENTO DE IMPTO DE ICA.AGENTE RETENEDOR DE IVA </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section>
+            <p>
+                <br> Consignar pago en Banco de Bogota, Cuenta corriete No. xxxxxxxxxxxx  <br> 
+                A nombre de: NOMBRE RAZON SOCIAL <br>
+                CODIGO DE BARRAS
+            </p>
+            
+        </section>
+
+    </main>
+    
+    <hr>
+
+    <footer>
+
+        <section>   
+            <h4>BANCO DE BOGOTA</h4>
+        <table class="tablaPie">
+            <tr>
+                <th colspan="2">FORMA DE PAGO</th>
+                <th>BANCO</th>
+                <th>CTA CHEQUE</th>
+                <th>No. CHEQUE</th>
+                <th>CIUDAD</th>
+            </tr>
+            <tr>
+                <td>Efectivo</td>
+                <td>$</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td>Cheque</td>
+                <td>$</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td>Total pagar</td>
+                <td>$</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+
+            </tr>
+           
+        </table>
+        </section>
+        <hr>
+        <section class="codigos">
+            
+            <div id="qrcode"></div>
+            <p id="codBarras" hidden>1234567</p>
+            <script type="text/javascript">
+                var valor = document.getElementById("codBarras");
+                var valorInt = parseInt(valor.innerHTML);
+                var valueStr = valorInt.toString();
+                
+                var qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: valueStr,
+                    width: 100,
+                    height: 100,
+                    colorDark : "#000000",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });                
+                </script>
+
+                
+                    
+                <div id="barcodeTarget" class="barcodeTarget"></div>
+                <script type="text/javascript">
+                
+                //function generateBarcode(){
+                    
+                    var valor = document.getElementById("codBarras");
+                    var value = parseInt(valor.innerHTML);
+                    var valueStr = value.toString();
+                    
+                    // var value = $("#barcodeValue").val();
+                    var btype = "codabar";
+                            //var btype = $("input[name=btype]:checked").val();
+                            // var renderer = $("input[name=renderer]:checked").val();
+                    var settings = {
+                        output:"css",
+                    
+                        bgColor: "#FFFFFF",
+                        color: "#000000",
+                        barWidth: 2,
+                        barHeight: 100,
+
+                    };
+                            
+                    $("#barcodeTarget").show().barcode(valueStr, btype, settings);                
+                    //}                
+                        //  window.onload = generateBarcode;
+                </script>
+                    
+        </section>
+
+    </footer>
+
+</body>
+</html>
